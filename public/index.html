@@ -1,9 +1,54 @@
-<!doctype html>
-<head>
-    <title> b l a n k </title>
-</head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Engross</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<body>
-   <script src="p5.min.js"></script>
-   <script src="sketch.js"></script>
-</body>
+    <!-- link to the stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+    
+    <!-- this imports the hydra synth script-->
+    <script src="https://unpkg.com/hydra-synth"></script>
+
+    <!-- links to the script -->
+    <script src="/script.js" defer></script>
+     <!-- 'defer' is used here so that the script will be loaded after then canvas is loaded so that the script can be applied to the canvas -->
+
+  </head>
+  
+  <body>
+
+    <canvas id="myCanvas"></canvas>
+    <!-- I am calling the canvas which is defined in the script.js file -->
+    <main>
+      <h1>
+        Engross
+      </h1>
+    
+     <!-- I have included some interaction onclick using the global variables that I defined in script.js -->
+      <button onclick="r=1;g=0.3">
+        magenta
+      </button>
+
+      <button onclick="r=0.3;g=1">
+        cyan
+      </button>
+      
+      <!-- I have included a reactive slider to change the value for the variable k to modulate the kaleid parameter-->
+      <div>
+        <input type="range" id="kaleid" name="kaleid"
+               min="1" max="8" oninput="k=this.value">
+        <label for="kaleid">kaleid</label>
+      </div>
+      
+      <div>
+        <input type="range" id="mod" name="mod"
+               min="0" max="0.5" step="0.001" oninput="mod=this.value">
+        <label for="mod">mod</label>
+      </div>
+      
+    </main>
+  </body>
+</html>
